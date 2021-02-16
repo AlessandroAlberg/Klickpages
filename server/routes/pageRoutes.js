@@ -3,6 +3,9 @@ const page = require('../controller/pageController');
 
 const router = express.Router();
 
-router.route('/').get(page.getPage);
+router.route('/').get(page.getPages);
+router.route('/:id').get(page.getPage);
+router.route('/').post(page.postPage);
+router.route('/:id').put(page.putPage);
 
 module.exports = router;
