@@ -14,7 +14,6 @@ module.exports = class PageRepository {
             let query = `SELECT *
                          FROM Page`;
             let result = await conn.request()
-            //.input('Id', this._mssql.Int, param.id)
             .query(query);
             
             return result.recordset;

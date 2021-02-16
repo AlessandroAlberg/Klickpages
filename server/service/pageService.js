@@ -1,6 +1,5 @@
 'use strict';
 const PageBO = require('../domain/business/pageBO');
-const { param } = require('../routes/pageRoutes');
 
 module.exports = class PageService {
     constructor() {
@@ -42,9 +41,8 @@ module.exports = class PageService {
 
     async putPage(req, res) {
         try{
-            let id = req.params.id;
             const params = {
-                id: id,
+                id: req.body.id,
                 name: req.body.name,
                 url: req.body.url,
                 published: req.body.published,

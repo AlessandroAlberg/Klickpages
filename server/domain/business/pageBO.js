@@ -26,7 +26,11 @@ module.exports = class PageBO {
 
     async pagePut(params) {
         let result = await  this._repository.pagePut(params);
-        return 'Page atualizada!';
+        if (result.rowsAffected[0]) {
+            return 'Página atualizada';
+        } else {
+            throw new Error('A Página não foi atualizada');
+        }
     }
 
 }

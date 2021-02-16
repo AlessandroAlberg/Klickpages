@@ -10,7 +10,7 @@ router.get('/api-status', (req, res) =>
   })
 );
 
-
 router.use('/page', page);
+router.use('/setting', setting);
 
 module.exports = router;
