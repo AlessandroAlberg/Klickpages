@@ -12,5 +12,6 @@ router.get('/api-status', (req, res) =>
 
 router.use('/page', page);
 router.use('/setting', setting);
+router.use('/tag', tag);
 
 module.exports = router;

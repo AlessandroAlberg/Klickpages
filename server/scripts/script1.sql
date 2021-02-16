@@ -57,29 +57,10 @@ BEGIN
 	CREATE TABLE Tag
 	(
 		Id					INT					NOT NULL IDENTITY(1,1),
-		Name				VARCHAR(255)		NULL,
-		CONSTRAINT PK_Tag_Id					PRIMARY KEY (Id)
-	)
-END
-
-GO
-
--- Verifica se a tabela PageTag existe, se não ela é criada
-IF NOT EXISTS (SELECT 1
-			   FROM Sys.Schemas
-			   INNER JOIN Sys.Objects
-			   ON Schemas.Schema_id = Objects.Schema_id
-			   WHERE Schemas.Name = 'dbo'
-			   AND Objects.Name = 'PageTag')
-BEGIN
-	CREATE TABLE PageTag
-	(
-		Id					INT					NOT NULL IDENTITY(1,1),
 		PageId				INT					NOT NULL,
-		TagId				INT					NOT NULL
-		CONSTRAINT PK_PageTag_Id				PRIMARY KEY (Id),
-		CONSTRAINT FK_PageTag_Page_PageId		FOREIGN KEY (PageId)	REFERENCES Page(Id),
-		CONSTRAINT FK_PageTag_Tag_TagId			FOREIGN KEY (TagId)		REFERENCES Tag(Id)
+		Name				VARCHAR(255)		NOT NULL,
+		CONSTRAINT PK_Tag_Id					PRIMARY KEY (Id),
+		CONSTRAINT FK_Tag_Page_PageId			FOREIGN KEY (PageId)	REFERENCES Page(Id)
 	)
 END
 
