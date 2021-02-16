@@ -1,0 +1,22 @@
+{
+    "ENV": "development",
+    "SERVER": {
+        "HOST": "localhost",
+        "PORT": 3000
+    },
+    "DB": {
+        "MSSQL": {
+            "HOST": "ALESSANDRO",
+            "USER": "sa",
+            "PASSWORD": "aless",
+            "DB": "klickpages",
+            "PORT": 1433,
+            "CONNECTION_TIMEOUT": 20000,
+            "REQUEST_TIMEOUT": 60000,
+            "POOL": {
+                "MAX": 5,
+                "MIN": 1
+            }
+        }
+    }
+}
