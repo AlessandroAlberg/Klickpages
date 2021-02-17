@@ -28,12 +28,12 @@ module.exports = class PageBO {
         let page = result.map(item => {return PageResponse.to(item)});
         let tags = await this._repositoryTag.findAll(param);
         if (tags.length !== 0) {
-            page[0].tags = [];
+            page = page[0].tags = [];
             for (let item of tags) {
-                page[0].tags.push(await TagResponse.to(item));
+                page.push(await TagResponse.to(item));
             }
         }
-        page = page[0];
+        page = this.filteredArray(page);
         return page;
     }
 
@@ -78,5 +78,12 @@ module.exports = class PageBO {
         for (let item of arrayTags){
             await this._repositoryTag.tagDelete(item.id);
         }
+    }
+
+    async filteredArray(array) {
+        let filtered = array.filter(function (elements) {
+            return elements !== null;
+        });
+        return filtered;
     }
 }
