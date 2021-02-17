@@ -49,18 +49,18 @@ module.exports = class SettingRepository {
                                 PageId,
                                 Title,
                                 Description,
-                                Linguage
+                                Language
                             ) VALUES (
                                 @PageId,
                                 @Title,
                                 @Description,
-                                @Linguage
+                                @Language
                             )SELECT @@IDENTITY Id`;
             let result = await conn.request()
                 .input('PageId', this._mssql.Int, params.pageId)
                 .input('Title', this._mssql.VarChar(255), params.title)
                 .input('Description', this._mssql.Text, params.description)
-                .input('Linguage', this._mssql.VarChar(255), params.linguage)
+                .input('Language', this._mssql.VarChar(255), params.language)
                 .query(query);
             
             return result.recordset;
@@ -76,13 +76,13 @@ module.exports = class SettingRepository {
                          SET
                              Title = @Title,
                              Description = @Description,
-                             Linguage = @Linguage
+                             Language = @Language
                          WHERE Id = @Id`;
             let result = await conn.request()
                 .input('Id', this._mssql.Int, params.id)
                 .input('Title', this._mssql.VarChar(255), params.title)
                 .input('Description', this._mssql.Text, params.description)
-                .input('Linguage', this._mssql.VarChar(255), params.linguage)
+                .input('Language', this._mssql.VarChar(255), params.language)
                 .query(query);
             
             return result;

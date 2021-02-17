@@ -7,7 +7,7 @@ module.exports = class SettingResponse {
             pageId: (typeof obj.PageId !== 'undefined') ? obj.PageId : null,
             title: (typeof obj.Title !== 'undefined') ? obj.Title : null,
             description: (typeof obj.Description !== 'undefined') ? obj.Description : null,
-            linguage: (typeof obj.Linguage !== 'undefined') ? obj.Linguage : null
+            language: (typeof obj.Language !== 'undefined') ? obj.Language : null
         }
     }
 }

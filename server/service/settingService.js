@@ -22,7 +22,7 @@ module.exports = class SettingService {
                 pageId: req.body.pageId,
                 title: req.body.title,
                 description: req.body.description,
-                linguage: req.body.linguage
+                language: req.body.language
             }
             let result = await this._bo.settingPost(params);
             return res.status(201).send(result);
@@ -37,7 +37,7 @@ module.exports = class SettingService {
                 id: req.body.id,
                 title: req.body.title,
                 description: req.body.description,
-                linguage: req.body.linguage
+                language: req.body.language
             }
             let result = await this._bo.settingPut(params);
             return res.status(200).send(result);

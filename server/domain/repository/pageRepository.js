@@ -11,7 +11,7 @@ module.exports = class PageRepository {
     async findAll() {
         let conn =  await this._mssqlPool;
         try {
-            let query = `SELECT *
+            let query = `SELECT Id
                          FROM Page`;
             let result = await conn.request()
             .query(query);
@@ -26,9 +26,17 @@ module.exports = class PageRepository {
     async find(param) {
         let conn =  await this._mssqlPool;
         try {
-            let query = `SELECT *
+            let query = `SELECT  Page.Id Id,
+                                 Page.Name Name,
+                                 Page.Url Url,
+                                 Page.Published Published,
+                                 Setting.Title Title,
+                                 Setting.Id SettingId,
+                                 Setting.Description Description,
+                                 Setting.Language Language
                          FROM Page
-                         WHERE Id = @Id`;
+                         LEFT JOIN Setting ON Page.Id = Setting.PageId
+                         WHERE Page.Id = @Id`;
             let result = await conn.request()
                 .input('Id', this._mssql.Int, param)
                 .query(query);

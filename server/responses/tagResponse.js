@@ -5,8 +5,7 @@ module.exports = class TagResponse {
         return {
             id: (typeof obj.Id !== 'undefined') ? obj.Id : null,
             pageId: (typeof obj.PageId !== 'undefined') ? obj.PageId : null,
-            name: (typeof obj.Name !== 'undefined') ? obj.Name : null
-            
+            name: (typeof obj.Name !== 'undefined') ? obj.Name : null 
         }
     }
 }

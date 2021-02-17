@@ -38,7 +38,7 @@ BEGIN
 		PageId				INT					NOT NULL,
 		Title				VARCHAR(255)		NULL,
 		Description			TEXT				NULL,
-		Linguage			VARCHAR(255)		NULL
+		Language			VARCHAR(255)		NULL
 		CONSTRAINT PK_Setting_Id				PRIMARY KEY (Id),
 		CONSTRAINT FK_Setting_Page_PageId		FOREIGN KEY (PageId)	REFERENCES Page(Id)
 	)
