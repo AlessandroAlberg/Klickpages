@@ -89,7 +89,7 @@ module.exports = class PageRepository {
                 .input('Published', this._mssql.Bit, params.published)
                 .query(query);
             
-            return result.recordset;
+            return result;
         } catch (err) {
             throw new Error(err);
         }

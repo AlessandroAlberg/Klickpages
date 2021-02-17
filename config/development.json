@@ -4,6 +4,10 @@
         "HOST": "localhost",
         "PORT": 3000
     },
+    "TEST": {
+        "HOST": "localhost",
+        "PORT": 7058
+    },
     "DB": {
         "MSSQL": {
             "HOST": "ALESSANDRO",
