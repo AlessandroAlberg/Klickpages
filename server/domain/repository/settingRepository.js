@@ -41,6 +41,22 @@ module.exports = class SettingRepository {
         }
     }
 
+    async existsSettingId(param) {
+        let conn =  await this._mssqlPool;
+        try {
+            let query = `SELECT Id
+                         FROM Setting
+                         WHERE pageId = @pageId`;
+            let result = await conn.request()
+                .input('pageId', this._mssql.Int, param)
+                .query(query);
+            
+            return result.recordset;
+        } catch (err) {
+            throw new Error(err);
+        }
+    }
+
     async postSetting(params) {
         let conn =  await this._mssqlPool;
         try {

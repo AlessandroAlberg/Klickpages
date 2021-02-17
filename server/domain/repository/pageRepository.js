@@ -95,4 +95,20 @@ module.exports = class PageRepository {
         }
 
     }
+
+    async pageDelete(param) {
+        let conn =  await this._mssqlPool;
+        try {
+            let query = `DELETE
+                         FROM Page
+                         WHERE Id = @Id`;
+            let result = await conn.request()
+                .input('Id', this._mssql.Int, param)
+                .query(query);            
+            return result;
+        } catch (err) {
+            throw new Error(err);
+        }
+
+    }
 }

@@ -20,3 +20,8 @@ module.exports.putPage = function (req, res) {
     const service = new PageService();
     service.putPage(req, res);
 }
+
+module.exports.deletePage = function (req, res) {
+    const service = new PageService();
+    service.deletePage(req, res);
+}

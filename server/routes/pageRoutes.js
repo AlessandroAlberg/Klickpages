@@ -7,5 +7,6 @@ router.route('/').get(page.getPages);
 router.route('/:id').get(page.getPage);
 router.route('/').post(page.postPage);
 router.route('/').put(page.putPage);
+router.route('/:id').delete(page.deletePage);
 
 module.exports = router;

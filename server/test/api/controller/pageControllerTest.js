@@ -18,7 +18,7 @@ describe('/GET page/:id', () => {
     });
 });
 
-describe('/POST page/', () => {
+describe.skip('/POST page/', () => {
     it('It should returns 201 - Create the page data in the table', async () => {
         let page = {
             name: "test",
@@ -32,10 +32,10 @@ describe('/POST page/', () => {
     });
 });
 
-describe('/PUT page/', () => {
+describe.skip('/PUT page/', () => {
     it ('It should returns 200 - Updates page data', async () => {
         let page = { 
-            id: id,
+            id: 26,
             name: "test",
             url: "test.com",
             published: false
@@ -43,6 +43,15 @@ describe('/PUT page/', () => {
         const res = await common.chai.request(common.server)        
             .put(`/page`)
             .send(page);
+        res.should.have.status(200);
+    });
+});
+
+describe.skip('/DELETE page/', () => {
+    it('It should returns 200 - Delete page', async () => {
+        let id = 24;
+        const res = await common.chai.request(common.server)
+            .delete(`/page/${id}`)
         res.should.have.status(200);
     });
 });

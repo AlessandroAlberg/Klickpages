@@ -53,4 +53,14 @@ module.exports = class PageService {
             throw new Error(err);
         }
     }
+
+    async deletePage(req, res) {
+        try{
+            const param = req.params.id;
+            let result = await this._bo.pageDelete(param);
+            return res.status(200).send(result);
+        } catch (err) {
+            throw new Error(err);
+        }
+    }
 }
